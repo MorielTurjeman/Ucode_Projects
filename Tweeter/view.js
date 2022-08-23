@@ -28,12 +28,11 @@ const _postsData =
 const renderFunction = function (posts) {
     $("#posts").empty()
     for (let post of posts) {
-        $("#posts").append($(`<div class="post1">`).text(`${post.text}`));
-        // for (let comment in post) {
-        //     $(".post").append($(`< div class= "comment" > `).text(post.comments.text))
-        // }
+        $("#posts").append($(`<div id='${post.id}'>`).text(`${post.text}`));
+        for (let comment of post.comments) {
+            $(`#${post.id}`).append($(`<div id='${comment.id}'>`).text(`${comment.text}`));
 
-
+        }
 
     }
 
