@@ -35,9 +35,6 @@ const view = function () {
         $(".delete").on("click", control.deletePost)
         $(".delete-comment").on("click", control.deleteComment)
 
-        // const idToDelete = $(this).closest(".post").attr('id')
-        // control.deletePost(idToDelete)
-
 
 
 
