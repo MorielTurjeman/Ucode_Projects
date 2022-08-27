@@ -56,19 +56,15 @@ const logic = function () {
     }
 
     const removePost = function (id) {
-        for (let i = 0; i < _postsData.length; i++) {
-            if (_postsData[i].id == id) {
-                _postsData.splice(i, 1)
-                console.log(`post id:${id} removed`)
-                break;
-            }
-
-
+        const idPost = _postsData.findIndex(item => item.id == id)
+        if (idPost != -1) {
+            _postsData.splice(idPost, 1)
         }
+
 
     }
 
-    const addComment = function (id, text) {
+    const addComment = function (text, id) {
         const post = _postsData.find(item => item.id == id)
 
         if (!post) {
@@ -93,17 +89,13 @@ const logic = function () {
             return
         }
 
-        for (let i = 0; i < post.comments.length; i++) {
-            if (post.comments[i].id == cId) {
-                post.comments.splice(i, 1)
-                console.log(`comment removed`)
-                break;
-            }
 
+
+        const idxComment = post.comments.findIndex(item => item.id == cId)
+        if (idxComment != -1) {
+            post.comments.splice(idxComment, 1)
 
         }
-
-
 
 
     }
@@ -121,6 +113,7 @@ const logic = function () {
 
 }
 
+// const model = logic()
 
 // const c=logic()
 // c.addPost("hi!")
